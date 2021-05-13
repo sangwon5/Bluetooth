@@ -30,7 +30,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import uk.co.alt236.bluetoothlelib.device.BluetoothLeDevice;
 
 public class bluetooth_search extends AppCompatActivity {
 

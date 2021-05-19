@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import org.altbeacon.beacon.AltBeacon;
 
 public class bluetooth_search extends AppCompatActivity {
 

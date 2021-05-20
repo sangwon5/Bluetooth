@@ -19,6 +19,11 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.altbeacon.beacon.BeaconConsumer;
+import org.altbeacon.beacon.BeaconManager;
+import org.altbeacon.beacon.BeaconParser;
+import org.altbeacon.beacon.MonitorNotifier;
+import org.altbeacon.beacon.Region;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
@@ -30,9 +35,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import org.altbeacon.beacon.AltBeacon;
 
-public class bluetooth_search extends AppCompatActivity {
+public class bluetooth_search extends AppCompatActivity{
 
 
     // 기기 검색 때 사용 예정
@@ -45,8 +49,9 @@ public class bluetooth_search extends AppCompatActivity {
     // 어댑터
     BluetoothAdapter mBlueAdapter;
 
-    // 페어링된 목록 출력
-    Button paired_list;
+
+    Button paired_list; // 페어링된 목록 출력
+    Button start_beacon; // 비콘 탐색
 
     private static final int REQUEST_ENABLE_BT = 1;
 
@@ -54,7 +59,6 @@ public class bluetooth_search extends AppCompatActivity {
     List<BluetoothDevice> bluetoothDevices;
 
     int selectDevice;
-
 
 
     @Override
@@ -68,9 +72,9 @@ public class bluetooth_search extends AppCompatActivity {
         //어댑터
         mBlueAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        // 출력 바뀔 (예정)
-        paired_list = findViewById(R.id.paired_list);
+        paired_list = findViewById(R.id.paired_list); // 출력 바뀔 (예정)
 
+        start_beacon = findViewById(R.id.start_beacon); // 비콘 탐색
         // 상태 텍스트
         pairedlist = findViewById(R.id.pairedlist);
 
@@ -125,6 +129,16 @@ public class bluetooth_search extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+            }
+        });
+        // 비콘 버튼
+        start_beacon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent beacon = new Intent(getApplicationContext(), beacon.class);
+                startActivity(beacon);
+
 
             }
         });

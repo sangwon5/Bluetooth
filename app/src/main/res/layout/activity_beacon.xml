@@ -18,10 +18,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="비콘버튼"
-        android:onClick="OnButtonClicked"/>
+        android:id="@+id/Beacon_button"
+        android:text="탐색 버튼"
+        android:onClick="onClicked"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
